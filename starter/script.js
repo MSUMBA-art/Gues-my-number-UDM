@@ -12,6 +12,7 @@
 
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let highScore = 0 
 
 // click  event for check button
 document.querySelector('.check').addEventListener('click', function () {
@@ -32,6 +33,11 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').style.color = 'red';
     document.querySelector('.number').style.width = '30rem';
     document.querySelector('.number').style.color = 'blue';
+
+    if (score > highScore) {
+      highScore = score
+      document.querySelector('.highscore').textContent = highScore;
+    }
 
     // when guess is too hight
   } else if (guess > secretNumber) {
